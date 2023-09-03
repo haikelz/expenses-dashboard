@@ -80,8 +80,8 @@ export default function App() {
           </div>
         </div>
         <div className="p-4 w-full">
-          <div className="w-full flex flex-col xl:flex-row bg-white rounded-xl">
-            <div className="w-full relative py-6 px-8 md:py-14 md:px-16">
+          <div className="w-full flex flex-col 2xl:flex-row bg-white rounded-xl">
+            <div className="w-full py-6 px-8 md:py-14 md:px-16">
               <div className="w-full flex xl:hidden justify-end items-center">
                 <button
                   type="button"
@@ -93,35 +93,62 @@ export default function App() {
                 </button>
               </div>
               {isOpen ? (
-                <div className="absolute xl:hidden p-5 top-14 bg-black right-10">
-                  <ul className="space-y-2 mt-3">
+                <div className="fixed left-0 p-7 z-10 xl:hidden top-0 w-full min-h-screen bg-black">
+                  <div>
+                    <div className="w-full">
+                      <div className="flex justify-between items-center">
+                        <div className="w-fit relative">
+                          <img
+                            className=""
+                            src="/samantha.png"
+                            alt="samantha"
+                          />
+                          <div className="absolute -top-4 -right-4 w-8 h-8 text-center flex justify-center items-center bg-red-500 rounded-full">
+                            4
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          aria-label="close navbar"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <XMarkIcon />
+                        </button>
+                      </div>
+                    </div>
+                    <h2 className="font-semibold text-3xl my-3">Samantha</h2>
+                    <p className="text-[17px] text-white/50 font-normal">
+                      samantha@email.com
+                    </p>
+                  </div>
+                  <ul className="space-y-2 mt-10">
                     <li>
-                      <p className="font-semibold text-base text-white/50">
+                      <p className="font-semibold text-[25px] text-white/50">
                         Dashboard
                       </p>
                     </li>
                     <li>
-                      <p className="font-semibold text-base text-white">
+                      <p className="font-semibold text-[25px] text-white">
                         Expenses
                       </p>
                     </li>
                     <li>
-                      <p className="font-semibold text-base text-white/50">
+                      <p className="font-semibold text-[25px] text-white/50">
                         Wallets
                       </p>
                     </li>
                     <li>
-                      <p className="font-semibold text-base text-white/50">
+                      <p className="font-semibold text-[25px] text-white/50">
                         Summary
                       </p>
                     </li>
                     <li>
-                      <p className="font-semibold text-base text-white/50">
+                      <p className="font-semibold text-[25px] text-white/50">
                         Accounts
                       </p>
                     </li>
                     <li>
-                      <p className="font-semibold text-base text-white/50">
+                      <p className="font-semibold text-[25px] text-white/50">
                         Settings
                       </p>
                     </li>
