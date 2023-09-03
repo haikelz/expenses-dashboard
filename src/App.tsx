@@ -20,31 +20,31 @@ export default function App() {
   );
 
   const data = [
-    { year: 2010, count: 10 },
-    { year: 2011, count: 20 },
-    { year: 2012, count: 15 },
-    { year: 2013, count: 25 },
-    { year: 2014, count: 22 },
-    { year: 2015, count: 30 },
-    { year: 2016, count: 28 },
+    { activity: "Grocery", today: 326800 },
+    { activity: "Transportation", today: 15000 },
+    { activity: "Housing", today: 185750 },
+    { activity: "Food and Drink", monday: 156000 },
+    { activity: "Entertainment", monday: 35200 },
   ];
 
   return (
     <div className="bg-[#101010] w-full flex justify-center items-center min-h-screen text-white">
       <div className="flex w-full">
-        <div className="w-[500px] sticky top-0 left-0 max-h-screen min-h-screen p-10">
-          <div className="w-fit">
-            <div className="w-fit relative">
-              <img className="" src="/samantha.png" alt="samantha" />
-              <div className="absolute top-0 right-0 w-8 h-8 text-center flex justify-center items-center bg-red-500 rounded-full">
-                4
+        <div className="w-[500px] sticky top-0 left-0 max-h-screen min-h-screen flex justify-center items-center">
+          <div className="w-fit flex flex-col justify-between items-start h-[651px]">
+            <div>
+              <div className="w-fit relative">
+                <img className="" src="/samantha.png" alt="samantha" />
+                <div className="absolute -top-4 -right-4 w-8 h-8 text-center flex justify-center items-center bg-red-500 rounded-full">
+                  4
+                </div>
               </div>
+              <h2 className="font-semibold text-3xl my-1">Samantha</h2>
+              <p className="text-[17px] text-white/50 font-normal">
+                samantha@email.com
+              </p>
             </div>
-            <h2 className="font-semibold text-3xl my-1">Samantha</h2>
-            <p className="text-[17px] text-white/50 font-normal">
-              samantha@email.com
-            </p>
-            <ul className="space-y-6">
+            <ul className="space-y-6 pb-14">
               <li>
                 <p className="font-semibold text-[25px] text-white/50">
                   Dashboard
@@ -78,7 +78,7 @@ export default function App() {
         </div>
         <div className="p-4 w-full">
           <div className="w-full flex bg-white rounded-xl">
-            <div className="w-full p-10">
+            <div className="w-full py-14 px-16">
               <div>
                 <div>
                   <div className="flex w-full justify-between items-center">
@@ -103,11 +103,17 @@ export default function App() {
                     className="my-6"
                     type="bar"
                     data={{
-                      labels: data.map((item) => item.year),
+                      labels: data.map((item) => item.activity),
                       datasets: [
                         {
-                          label: "Pengeluaran",
-                          data: data.map((item) => item.count),
+                          label: "Today",
+                          data: data.map((item) => item.today),
+                          backgroundColor: "#793FDF",
+                        },
+                        {
+                          label: "Monday",
+                          data: data.map((item) => item.monday),
+                          backgroundColor: "#FFFD8C",
                         },
                       ],
                     }}
@@ -127,7 +133,7 @@ export default function App() {
                     </div>
                     <div className="w-full flex justify-center items-start space-y-5 flex-col">
                       <div className="flex justify-start w-full space-x-4 items-center">
-                        <div className="w-[48px] h-[48px] bg-[#32A7E2] flex justify-center items-center rounded-full">
+                        <div className="w-[48px] p-4 h-[48px] bg-[#32A7E2] flex justify-center items-center rounded-full">
                           <img src="/grocery.svg" alt="grocery" />
                         </div>
                         <div className="flex w-full justify-between items-center">
@@ -147,7 +153,7 @@ export default function App() {
                         </div>
                       </div>
                       <div className="flex w-full justify-center space-x-4 items-center">
-                        <div className="w-[48px] h-[48px] bg-[#B548C6] flex justify-center items-center rounded-full">
+                        <div className="w-[48px] p-4 h-[48px] bg-[#B548C6] flex justify-center items-center rounded-full">
                           <img src="/transportation.svg" alt="transportation" />
                         </div>
                         <div className="flex w-full justify-between items-center">
@@ -167,7 +173,7 @@ export default function App() {
                         </div>
                       </div>
                       <div className="flex w-full justify-center space-x-4 items-center">
-                        <div className="w-[48px] h-[48px] bg-[#FF8700] flex justify-center items-center rounded-full">
+                        <div className="w-[48px] p-4 h-[48px] bg-[#FF8700] flex justify-center items-center rounded-full">
                           <img src="/housing.svg" alt="housing" />
                         </div>
                         <div className="flex w-full justify-between items-center">
@@ -201,7 +207,7 @@ export default function App() {
                     </div>
                     <div className="w-full flex justify-center items-start space-y-5 flex-col">
                       <div className="flex justify-start w-full space-x-4 items-center">
-                        <div className="w-[48px] h-[48px] bg-[#DC3434] flex justify-center items-center rounded-full">
+                        <div className="w-[48px] p-4 h-[48px] bg-[#DC3434] flex justify-center items-center rounded-full">
                           <img src="/food-and-drink.svg" alt="food and drink" />
                         </div>
                         <div className="flex w-full justify-between items-center">
@@ -221,7 +227,7 @@ export default function App() {
                         </div>
                       </div>
                       <div className="flex w-full justify-start space-x-4 items-center">
-                        <div className="w-[48px] h-[48px] bg-[#4BA83D] flex justify-center items-center rounded-full">
+                        <div className="w-[48px] p-4 h-[48px] bg-[#4BA83D] flex justify-center items-center rounded-full">
                           <img src="/entertainment.svg" alt="entertainment" />
                         </div>
                         <div className="flex w-full justify-between items-center">
@@ -245,59 +251,100 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F9FAFC] w-full rounded-xl">
+            <div className="bg-[#F9FAFC] w-full py-14 px-12 rounded-xl">
               <div>
                 <h4 className="font-semibold text-xl text-[#262A41]">
                   Where your money go?
                 </h4>
-                <div>
-                  <p className="text-[#273240] text-[14px] font-medium">
-                    Food and Drinks
-                  </p>
-                  <span className="text-[13px] text-[#273240]">872.400</span>
-                </div>
-                <div>
-                  <p className="text-[#273240] text-[14px] font-medium">
-                    Shopping
-                  </p>
-                  <span className="text-[13px] text-[#273240]">1.378.200</span>
-                </div>
-                <div>
-                  <p className="text-[#273240] text-[14px] font-medium">
-                    Housing
-                  </p>
-                  <span className="text-[13px] text-[#273240]">928.500</span>
-                </div>
-                <div>
-                  <p className="text-[#273240] text-[14px] font-medium">
-                    Transportation
-                  </p>
-                  <span className="text-[13px] text-[#273240]">420.700</span>
-                </div>
-                <div>
-                  <p className="text-[#273240] text-[14px] font-medium">
-                    Vehicle
-                  </p>
-                  <span className="text-[13px] text-[#273240]">520.000</span>
+                <div className="mt-8 space-y-8">
+                  <div className="">
+                    <div className="flex justify-between items-center w-full">
+                      <p className="text-[#273240] text-[14px] font-medium">
+                        Food and Drinks
+                      </p>
+                      <span className="text-[13px] text-[#273240]">
+                        872.400
+                      </span>
+                    </div>
+                    <div className="w-full mt-2 relative h-2 rounded-full bg-[#ECEFF5]">
+                      <div className="bg-[#31BA96] w-[70px] h-2 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-[#273240] text-[14px] font-medium">
+                        Shopping
+                      </p>
+                      <span className="text-[13px] text-[#273240]">
+                        1.378.200
+                      </span>
+                    </div>
+                    <div className="w-full mt-2 relative h-2 rounded-full bg-[#ECEFF5]">
+                      <div className="bg-[#31BA96] w-[110px] h-2 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-[#273240] text-[14px] font-medium">
+                        Housing
+                      </p>
+                      <span className="text-[13px] text-[#273240]">
+                        928.500
+                      </span>
+                    </div>
+                    <div className="w-full mt-2 relative h-2 rounded-full bg-[#ECEFF5]">
+                      <div className="bg-[#31BA96] w-[90px] h-2 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-[#273240] text-[14px] font-medium">
+                        Transportation
+                      </p>
+                      <span className="text-[13px] text-[#273240]">
+                        420.700
+                      </span>
+                    </div>
+                    <div className="w-full mt-2 relative h-2 rounded-full bg-[#ECEFF5]">
+                      <div className="bg-[#31BA96] w-[60px] h-2 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-[#273240] text-[14px] font-medium">
+                        Vehicle
+                      </p>
+                      <span className="text-[13px] text-[#273240]">
+                        520.000
+                      </span>
+                    </div>
+                    <div className="w-full mt-2 relative h-2 rounded-full bg-[#ECEFF5]">
+                      <div className="bg-[#31BA96] w-[90px] h-2 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col bg-[#EDF0F6]">
-                <div className="flex justify-between items-center">
-                  <img src="/box.svg" alt="box" />
-                  <img src="/flower.svg" alt="flower" />
+              <div className="flex flex-col mt-24 p-6 rounded-xl justify-center items-center bg-[#EDF0F6]">
+                <div className="flex justify-between w-full relative items-center">
+                  <img src="/box.svg" alt="box" className="absolute left-0" />
+                  <img
+                    src="/flower.svg"
+                    alt="flower"
+                    className="absolute right-0"
+                  />
                 </div>
-                <div>
+                <div className="mt-14">
                   <h4 className="text-[#273240] font-semibold text-base">
                     Save More Money
                   </h4>
-                  <p className="text-[#404852] text-xs">
+                  <p className="text-[#404852]/70 my-3 text-xs">
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim.
                   </p>
                   <button
-                    className="bg-[#101010] rounded-md font-semibold text-[13px] p-4"
+                    className="bg-[#101010] rounded-md font-semibold text-[13px] p-4 w-full"
                     type="button"
-                    aria-label="view tips"
+                    aria-label="View Tips"
                   >
                     View Tips
                   </button>
