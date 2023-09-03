@@ -7,9 +7,12 @@ import {
   LinearScale,
   Tooltip,
 } from "chart.js";
+import { useState } from "react";
 import { Chart } from "react-chartjs-2";
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   ChartJS.register(
     ArcElement,
     CategoryScale,
@@ -30,7 +33,7 @@ export default function App() {
   return (
     <div className="bg-[#101010] w-full flex justify-center items-center min-h-screen text-white">
       <div className="flex w-full">
-        <div className="w-[500px] sticky top-0 left-0 max-h-screen min-h-screen flex justify-center items-center">
+        <div className="w-[500px] hidden sticky top-0 left-0 max-h-screen min-h-screen xl:flex justify-center items-center">
           <div className="w-fit flex flex-col justify-between items-start h-[651px]">
             <div>
               <div className="w-fit relative">
@@ -39,7 +42,7 @@ export default function App() {
                   4
                 </div>
               </div>
-              <h2 className="font-semibold text-3xl my-1">Samantha</h2>
+              <h2 className="font-semibold text-3xl my-2">Samantha</h2>
               <p className="text-[17px] text-white/50 font-normal">
                 samantha@email.com
               </p>
@@ -77,9 +80,55 @@ export default function App() {
           </div>
         </div>
         <div className="p-4 w-full">
-          <div className="w-full flex bg-white rounded-xl">
-            <div className="w-full py-14 px-16">
-              <div>
+          <div className="w-full flex flex-col xl:flex-row bg-white rounded-xl">
+            <div className="w-full relative py-6 px-8 md:py-14 md:px-16">
+              <div className="w-full flex xl:hidden justify-end items-center">
+                <button
+                  type="button"
+                  aria-label="open close navbar"
+                  className="text-black"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {isOpen ? <XMarkIcon /> : <BarIcon />}
+                </button>
+              </div>
+              {isOpen ? (
+                <div className="absolute xl:hidden p-5 top-14 bg-black right-10">
+                  <ul className="space-y-2 mt-3">
+                    <li>
+                      <p className="font-semibold text-base text-white/50">
+                        Dashboard
+                      </p>
+                    </li>
+                    <li>
+                      <p className="font-semibold text-base text-white">
+                        Expenses
+                      </p>
+                    </li>
+                    <li>
+                      <p className="font-semibold text-base text-white/50">
+                        Wallets
+                      </p>
+                    </li>
+                    <li>
+                      <p className="font-semibold text-base text-white/50">
+                        Summary
+                      </p>
+                    </li>
+                    <li>
+                      <p className="font-semibold text-base text-white/50">
+                        Accounts
+                      </p>
+                    </li>
+                    <li>
+                      <p className="font-semibold text-base text-white/50">
+                        Settings
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              ) : null}
+              <div className="mt-3 xl:mt-0">
                 <div>
                   <div className="flex w-full justify-between items-center">
                     <div>
@@ -90,8 +139,8 @@ export default function App() {
                         01 - 25 March, 2020
                       </p>
                     </div>
-                    <div className="flex justify-center items-center space-x-3">
-                      <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center space-x-1">
+                      <div className="justify-center hidden sm:flex items-center">
                         <img src="/user-1.svg" alt="user 1" />
                         <img src="/user-2.svg" alt="user 2" />
                         <img src="/user-3.svg" alt="user 3" />
@@ -251,7 +300,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F9FAFC] w-full py-14 px-12 rounded-xl">
+            <div className="bg-[#F9FAFC] py-6 px-8 md:py-14 md:px-16 w-full rounded-xl">
               <div>
                 <h4 className="font-semibold text-xl text-[#262A41]">
                   Where your money go?
@@ -355,5 +404,43 @@ export default function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function XMarkIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function BarIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
   );
 }
